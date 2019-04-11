@@ -106,13 +106,7 @@ class ' . $this->name . ' {
             }
             $i++;
         }
-        echo var_dump($sql);
         $this->conn->query('CREATE TABLE `crud_generator`.'.$this->name.' ('.$sql.' )');
-        echo ('CREATE TABLE `crud_generator`.'.$this->name.' ('.$sql.' )');
-
-        return $this->conn->query('CREATE TABLE '. $this->name . ' {
-            '.$sql . '
-        }');
 
     }
 
