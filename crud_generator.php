@@ -83,6 +83,24 @@ class ' . $this->name . ' {
     private $id;
     '.$champs.
     '
+    
+    public static function index(){
+        $conn = new PDO("mysql:host=localhost; dbname=crud_generator", \'root\', \'\');
+        return $conn->query("SELECT * FROM '.$this->name.'");
+    
+    }
+    
+    
+    public static function show($id){
+        $conn = new PDO("mysql:host=localhost; dbname=crud_generator", \'root\', \'\');
+        return $conn->query("SELECT * FROM '.$this->name.' WHERE id =".$id" ");
+    }
+    
+    public function load($id){
+        $conn = new PDO("mysql:host=localhost; dbname=crud_generator", \'root\', \'\');
+        $entity = new '.$this->name.'();
+        return $conn->query("SELECT * FROM '.$this->name.' WHERE id =".$id" ");
+    }
 }';
         $path = $this->folder."/".$this->name.".php";
         file_put_contents($path, $file);
